@@ -1,13 +1,14 @@
 package ru.itmo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
+
 
 @Getter
+@Setter
 @Entity
-@Table(name = "tb_ climbers")
+@Table(name = "tb_climbers")
 public class Climbers extends  Unique  {
     @Column(nullable = false)
     private String fullName;
@@ -15,5 +16,8 @@ public class Climbers extends  Unique  {
     public String address;
 
 
-
+    public Climbers(String fullName, String address) {
+        this.fullName = fullName;
+        this.address = address;
+    }
 }

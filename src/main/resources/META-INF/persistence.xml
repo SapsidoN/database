@@ -5,7 +5,6 @@
         <class>ru.itmo.entity.Mountains</class>
         <class>ru.itmo.entity.Climbers</class>
         <class>ru.itmo.entity.ClimbingGroup</class>
-        <class>ru.itmo.entity.Unique</class>
 
         <properties>
             <!-- используемый драйвер -->
