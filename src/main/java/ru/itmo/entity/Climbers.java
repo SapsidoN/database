@@ -13,7 +13,7 @@ public class Climbers extends  Unique  {
     @Column(nullable = false)
     private String fullName;
     @Column(nullable = false)
-    public String address;
+    private String address;
 
 
     public Climbers(String fullName, String address) {

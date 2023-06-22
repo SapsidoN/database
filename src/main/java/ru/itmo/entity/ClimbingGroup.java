@@ -12,20 +12,20 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "tb_climbingGroup")
-public class ClimbingGroup extends  Unique{
-@Column (nullable = false)
+public class ClimbingGroup extends Unique {
+    @Column(nullable = false)
     private LocalDate startTime;
-    @Column (nullable = false)
+    @Column(nullable = false)
     private LocalDate endTime;
     @ManyToOne
     @JoinColumn(name = "mountain_id")
     private Mountains mountains;
-    @Column (nullable = false)
-    private  Boolean kit;
+    @Column(nullable = false)
+    private Boolean kit;
     @ManyToMany
     @JoinTable(name = "grop_climber",
-    joinColumns = @JoinColumn(name = "grop_id"),
-    inverseJoinColumns = @JoinColumn(name = "climber_id"))
+            joinColumns = @JoinColumn(name = "grop_id"),
+            inverseJoinColumns = @JoinColumn(name = "climber_id"))
     private List<Climbers> grop = new ArrayList<>();
 
     public ClimbingGroup(Boolean kit) {

@@ -14,7 +14,8 @@ abstract public class Unique {
     @GeneratedValue
     protected int id;
 
-    public Unique() {}
+    public Unique() {
+    }
 
 
 }

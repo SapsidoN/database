@@ -12,14 +12,14 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException {
         try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("library");
-             EntityManager manager = emf.createEntityManager()){
+             EntityManager manager = emf.createEntityManager()) {
 
-             Climbers climbers1 = new Climbers("oleg","russia");
-            Climbers climbers2 = new Climbers("ira","russia");
-            Mountains mountains1 = new Mountains("Everest", "Nepal",8866);
-            Mountains mountains2 = new Mountains("Gora", "rus",8866);
+            Climbers climbers1 = new Climbers("oleg", "russia");
+            Climbers climbers2 = new Climbers("ira", "russia");
+            Mountains mountains1 = new Mountains("Everest", "Nepal", 8866);
+            Mountains mountains2 = new Mountains("Gora", "rus", 8866);
             ClimbingGroup climbingGroup1 = new ClimbingGroup(false);
-            climbingGroup1.setStartTime(LocalDate.of(2022,05,3));
+            climbingGroup1.setStartTime(LocalDate.of(2022, 05, 3));
             climbingGroup1.setEndTime(LocalDate.now());
             climbingGroup1.setMountains(mountains1);
             climbingGroup1.getGrop().add(climbers1);
@@ -34,27 +34,27 @@ public class Main {
             manager.getTransaction().commit();
 
             MountainsDAO mountainsDAO = new MountainsDAO(manager);
-            List<String> arr=mountainsDAO.selectAlreadyClimbed();
-            for(var a: arr){
+            List<String> arr = mountainsDAO.selectAlreadyClimbed();
+            for (var a : arr) {
                 System.out.println(a);
             }
-            List<String> arr1=mountainsDAO.selectHereWasNoClimb();
-            for(var a: arr1){
+            List<String> arr1 = mountainsDAO.selectHereWasNoClimb();
+            for (var a : arr1) {
                 System.out.println(a);
             }
-            ClimberDAO climberDAO= new ClimberDAO(manager);
-            List<String> arr3=climberDAO.NamesMountainClimbers("Everest");
-            for(var a: arr3){
-                System.out.println(a);
-            }
-
-            List<String> arr4=mountainsDAO.selectGetNamesHeights(LocalDate.of(2022,05,2),LocalDate.now());
-            for(var a: arr4){
+            ClimberDAO climberDAO = new ClimberDAO(manager);
+            List<String> arr3 = climberDAO.NamesMountainClimbers("Everest");
+            for (var a : arr3) {
                 System.out.println(a);
             }
 
-            List<String> arr5=climberDAO.NamesNotEnrolledNew(LocalDate.of(2021,05,2));
-            for(var a: arr5){
+            List<String> arr4 = mountainsDAO.selectGetNamesHeights(LocalDate.of(2022, 05, 2), LocalDate.now());
+            for (var a : arr4) {
+                System.out.println(a);
+            }
+
+            List<String> arr5 = climberDAO.NamesNotEnrolledNew(LocalDate.of(2021, 05, 2));
+            for (var a : arr5) {
                 System.out.println(a);
             }
 
